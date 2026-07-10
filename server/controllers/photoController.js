@@ -1,28 +1,57 @@
+
+const {
+  uploadImage,
+  getAllImages,
+} = require("../services/cloudinaryService");
 // controllers/photoController.js
 
-exports.getPhotos = (req, res) => {
-  res.json({
-    success: true,
-    message: "Hello from the Photo Controller! 📸",
-  });
+exports.getPhotos = async (req, res) => {
+  try {
+
+    const photos = await getAllImages();
+
+    res.json({
+      success: true,
+      photos,
+    });
+
+  } catch (error) {
+
+    console.error(error);
+
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch photos.",
+    });
+
+  }
 };
 
-exports.uploadPhoto = (req, res) => {
+exports.uploadPhoto = async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({
+        success: false,
+        message: "No photo uploaded.",
+      });
+    }
 
-  console.log(req.file);
+    const photo = await uploadImage(req.file);
 
-  if (!req.file) {
-    return res.status(400).json({
-      success: false,
-      message: "No file uploaded."
+    res.status(201).json({
+      success: true,
+      message: "Photo uploaded successfully!",
+      photo,
     });
+
+  } catch (error) {
+
+    console.error(error);
+
+    res.status(500).json({
+      success: false,
+      message: "Upload failed.",
+    });
+
   }
-
-  res.json({
-    success: true,
-    message: "Image received successfully! 🎉",
-    filename: req.file.originalname,
-    size: req.file.size
-  });
-
 };
