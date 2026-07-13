@@ -4,6 +4,7 @@ const router = express.Router();
 const {
   getPhotos,
   uploadPhoto,
+  deletePhoto,
 } = require("../controllers/photoController");
 
 const upload = require("../middleware/upload");

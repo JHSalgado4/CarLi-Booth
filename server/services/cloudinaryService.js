@@ -34,4 +34,5 @@ async function getAllImages() {
 module.exports = {
   uploadImage,
   getAllImages,
+  deleteImage,
 };
