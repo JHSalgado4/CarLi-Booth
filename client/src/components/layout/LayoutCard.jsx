@@ -1,3 +1,5 @@
+import "../../styles/layout.css";
+
 function LayoutCard({
   layout,
   selected,
@@ -5,36 +7,31 @@ function LayoutCard({
 }) {
   return (
     <div
-      onClick={() => onSelect(layout)}
-      style={{
-        width: "220px",
-        padding: "18px",
-        borderRadius: "18px",
-        cursor: "pointer",
-        background: "#fff",
-        border: selected
-          ? "3px solid #C79A6D"
-          : "2px solid #ECECEC",
-        transition: ".25s",
-        boxShadow: selected
-          ? "0 8px 25px rgba(199,154,109,.25)"
-          : "0 3px 10px rgba(0,0,0,.05)",
-      }}
+      className={`layout-card ${selected ? 'layout-card-selected' : ''}`}
+      onClick={() => onSelect()}
     >
-      <img
-        src={layout.image}
-        alt={layout.name}
-        style={{
-          width: "100%",
-          borderRadius: "10px",
-        }}
-      />
+      <div className="layout-card-image-wrapper">
+        <img
+          src={layout.image}
+          alt={layout.name}
+          className="layout-card-image"
+        />
+        {selected && <div className="layout-card-checkmark">✓</div>}
+      </div>
 
-      <h3>{layout.name}</h3>
+      <div className="layout-card-content">
+        <h3 className="layout-card-name">{layout.name}</h3>
+        
+        <div className="layout-card-details">
+          <span className="layout-card-size">{layout.size}</span>
+          <span className="layout-card-divider">•</span>
+          <span className="layout-card-photos">{layout.photos} Photo{layout.photos !== 1 ? 's' : ''}</span>
+        </div>
 
-      <p>{layout.size}</p>
-
-      <p>{layout.photos} Photos</p>
+        {layout.description && (
+          <p className="layout-card-description">{layout.description}</p>
+        )}
+      </div>
     </div>
   );
 }

@@ -1,62 +1,47 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { usePhotoBooth } from "../context/PhotoBoothContext";
+
+import PaperFrame from "../components/invitation/PaperFrame";
+import LayoutGrid from "../components/layout/LayoutGrid";
 import Button from "../components/common/Button";
+import "../styles/layout.css";
 
-function LayoutSelection() {
-  const navigate = useNavigate();
+export default function LayoutSelection() {
 
-  const layouts = [
-    {
-      id: 1,
-      name: "Classic Strip",
-    },
-    {
-      id: 2,
-      name: "2x2 Grid",
-    },
-    {
-      id: 3,
-      name: "Minimal",
-    },
-  ];
+    const navigate = useNavigate();
+    const { setLayout } = usePhotoBooth();
 
-  return (
-    <div
-      style={{
-        padding: "40px",
-      }}
-    >
-      <h1>Choose a Layout</h1>
+    const [selected, setSelected] = useState(null);
 
-      <div
-        style={{
-          display: "flex",
-          gap: "20px",
-          marginTop: "30px",
-        }}
-      >
-        {layouts.map((layout) => (
-          <div
-            key={layout.id}
-            style={{
-              width: "220px",
-              border: "1px solid #ddd",
-              borderRadius: "12px",
-              padding: "20px",
-              textAlign: "center",
-            }}
-          >
-            <h3>{layout.name}</h3>
+    const handleContinue = () => {
+        if (selected) {
+            setLayout(selected);
+            navigate("/camera");
+        }
+    };
 
-            <Button
-              onClick={() => navigate("/camera")}
-            >
-              Select
-            </Button>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+    return (
+
+        <PaperFrame>
+
+            <LayoutGrid
+                selected={selected}
+                setSelected={setSelected}
+            />
+
+            <div className="layout-footer">
+                <Button 
+                    disabled={!selected}
+                    onClick={handleContinue}
+                    className="layout-continue-button"
+                >
+                    Continue
+                </Button>
+            </div>
+
+        </PaperFrame>
+
+    );
+
 }
-
-export default LayoutSelection;

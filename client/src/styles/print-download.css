@@ -1,0 +1,379 @@
+/* Print Container */
+.print-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  gap: 30px;
+}
+
+/* Title */
+.print-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 40px;
+  color: #5E667D;
+  font-weight: 400;
+  margin: 0;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.1s;
+}
+
+.print-subtitle {
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #5E667D;
+  margin: 0;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.15s;
+}
+
+/* Preview Section */
+.print-preview {
+  display: none;
+  width: 100%;
+  max-width: 700px;
+  background: #FCFAF7;
+  border-radius: 0;
+  padding: 40px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+  position: relative;
+}
+
+.print-preview.visible {
+  display: block;
+}
+
+.strip-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+}
+
+/* Decorative Corners */
+.corner-decoration {
+  position: absolute;
+  opacity: 0.6;
+  z-index: 5;
+}
+
+.corner-top-right {
+  top: 20px;
+  right: 20px;
+}
+
+.corner-bottom-left {
+  bottom: 20px;
+  left: 20px;
+}
+
+.corner-decoration svg {
+  width: 60px;
+  height: 60px;
+}
+
+/* Decorative Border */
+.strip-border {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border: 2px solid rgba(94, 102, 125, 0.2);
+  pointer-events: none;
+  border-radius: 4px;
+}
+
+/* Strip Header */
+.strip-header {
+  text-align: center;
+  border-bottom: 2px solid rgba(94, 102, 125, 0.15);
+  padding-bottom: 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.strip-couple {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 32px;
+  font-style: italic;
+  letter-spacing: 2px;
+  color: #5E667D;
+  margin: 0;
+  font-weight: 400;
+  font-variation-settings: "ital" 1;
+}
+
+.strip-date {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #8A8F9E;
+  margin: 8px 0 0 0;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+/* Strip Photos - Single Column */
+.strip-photos {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+.strip-photos.single-column {
+  grid-template-columns: none;
+}
+
+.strip-photo {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #f5f5f5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.strip-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Strip Branding */
+.strip-branding {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 0;
+  border-top: 2px solid rgba(94, 102, 125, 0.15);
+  border-bottom: 2px solid rgba(94, 102, 125, 0.15);
+  position: relative;
+  z-index: 10;
+}
+
+.strip-monogram {
+  width: 45px;
+  height: 45px;
+  opacity: 0.7;
+}
+
+.strip-text {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  color: #5E667D;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+/* Strip Footer */
+.strip-footer {
+  padding-top: 12px;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-left,
+.footer-right {
+  font-size: 10px;
+  color: #8A8F9E;
+  margin: 0;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+}
+
+.footer-left {
+  flex: 1;
+  text-align: left;
+}
+
+.footer-right {
+  flex: 1;
+  text-align: right;
+  font-style: italic;
+}
+
+/* Print Options */
+.print-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  width: 100%;
+  max-width: 500px;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+.option-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.option-group h3 {
+  font-size: 14px;
+  color: #5E667D;
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.option-btn {
+  min-width: 140px;
+  padding: 12px 24px;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.download-btn {
+  border-color: #5E667D;
+  color: #5E667D;
+}
+
+.download-btn:hover {
+  background: #5E667D;
+  color: white;
+}
+
+.print-btn {
+  border-color: #5E667D;
+  color: #5E667D;
+}
+
+.print-btn:hover {
+  background: #5E667D;
+  color: white;
+}
+
+.option-note {
+  font-size: 11px;
+  color: #8A8F9E;
+  margin: 0;
+  text-align: center;
+  font-style: italic;
+}
+
+.option-divider {
+  grid-column: 1 / -1;
+  height: 1px;
+  background: rgba(94, 102, 125, 0.2);
+}
+
+/* Print Actions */
+.print-actions {
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.print-continue {
+  min-width: 160px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Print Styles */
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .print-container {
+    display: none !important;
+  }
+
+  .print-preview {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    max-width: 100% !important;
+    background: white !important;
+  }
+
+  .strip-wrapper {
+    page-break-inside: avoid;
+  }
+}
+
+/* Responsive - Tablet */
+@media (max-width: 1024px) {
+  .print-container {
+    padding: 30px 20px;
+    gap: 25px;
+  }
+
+  .print-title {
+    font-size: 36px;
+  }
+
+  .print-options {
+    max-width: 450px;
+  }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 640px) {
+  .print-container {
+    padding: 20px 16px;
+    gap: 20px;
+  }
+
+  .print-title {
+    font-size: 28px;
+  }
+
+  .print-subtitle {
+    font-size: 12px;
+  }
+
+  .print-options {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 100%;
+  }
+
+  .option-divider {
+    display: none;
+  }
+
+  .option-btn {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .print-continue {
+    width: 100%;
+    min-width: auto;
+  }
+}

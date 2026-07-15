@@ -18,10 +18,42 @@
 
 }
 
-.button:hover{
+.button:hover:not(:disabled){
 
     background:var(--navy);
 
     color:white;
+}
 
+.button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Hero button with decorative ornaments */
+.hero-button {
+    padding: 16px 50px;
+    border: 1.5px solid var(--navy);
+    position: relative;
+    font-size: 12px;
+    letter-spacing: 4px;
+}
+
+.hero-button::before,
+.hero-button::after {
+    content: "✶";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--navy);
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+.hero-button::before {
+    left: 20px;
+}
+
+.hero-button::after {
+    right: 20px;
 }
