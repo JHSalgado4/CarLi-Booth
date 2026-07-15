@@ -1,0 +1,85 @@
+.landing{
+     min-height:100vh;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:#F7F3EC;
+     background:
+
+        linear-gradient(rgba(247,243,236,.95),
+        rgba(247,243,236,.95)),
+
+        url("../assets/invitation/paper-texture.png");
+
+    background-size:cover;
+}
+
+.hero{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    min-height:85vh;
+
+    gap:1.4rem;
+}
+
+.hero-title{
+    font-size:5.8rem;
+    line-height:.92;
+}
+
+.hero-ampersand{
+    font-size:4rem;
+    color:#c2a46a;
+}
+
+.hero h1{
+
+    font-size:4rem;
+
+    color:var(--primary);
+
+    margin-bottom:12px;
+}
+
+.hero p{
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+    margin-bottom:40px;
+}
+
+.hero-monogram{
+    width:70px;
+    margin:1.75rem auto;
+    display:block;
+    opacity:.95;
+}
+
+.start-btn{
+
+    background:var(--primary);
+
+    color:white;
+
+    padding:16px 40px;
+
+    border-radius:50px;
+
+    transition:var(--transition);
+
+    font-size:1rem;
+}
+
+.start-btn:hover{
+
+    transform:translateY(-3px);
+
+    background:var(--primary-dark);
+}

@@ -15,4 +15,7 @@ router.get("/", getPhotos);
 // POST /api/photos
 router.post("/", upload.single("photo"), uploadPhoto);
 
+// DELETE /api/photos/:publicId
+router.delete("/:publicId", deletePhoto);
+
 module.exports = router;

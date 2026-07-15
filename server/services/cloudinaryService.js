@@ -31,8 +31,14 @@ async function getAllImages() {
   }));
 }
 
+async function deleteImages(publicId) {
+  const result = await cloudinary.uploader.destroy(publicId);
+
+  return result;
+}
+
 module.exports = {
   uploadImage,
   getAllImages,
-  deleteImage,
+  deleteImages,
 };

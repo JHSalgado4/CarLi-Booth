@@ -1,0 +1,19 @@
+.monogram{
+
+    position:absolute;
+
+    top:35px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    font-family:"Cormorant Garamond";
+
+    font-size:40px;
+
+    color:#687086;
+
+    letter-spacing:8px;
+
+}

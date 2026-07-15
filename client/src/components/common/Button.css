@@ -1,0 +1,27 @@
+.button{
+
+    padding:18px 40px;
+
+    border:1px solid var(--navy);
+
+    background:transparent;
+
+    color:var(--navy);
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.button:hover{
+
+    background:var(--navy);
+
+    color:white;
+
+}
