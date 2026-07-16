@@ -40,5 +40,5 @@ async function deleteImages(publicId) {
 module.exports = {
   uploadImage,
   getAllImages,
-  deleteImages,
+  deleteImage: deleteImages,
 };

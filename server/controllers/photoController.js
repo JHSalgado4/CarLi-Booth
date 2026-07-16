@@ -4,6 +4,8 @@ const {
   getAllImages,
   deleteImage,
 } = require("../services/cloudinaryService");
+
+const { success, error } = require("../utils/apiResponse");
 // controllers/photoController.js
 
 exports.getPhotos = async (req, res) => {

@@ -1,32 +1,43 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { PhotoBoothProvider } from "./context/PhotoBoothContext";
+import { useState } from 'react'
+import './App.css'
+import topRightFlower from './assets/Top-RightFlower.png'
+import bottomLeftFlower from './assets/Bottom-LeftFlower.png'
+import Hero from './pages/Hero.jsx'
+import Booth from './pages/Booth.jsx'
+import Gallery from './pages/Gallery.jsx'
+import About from './pages/About.jsx'
 
-import Landing from "./pages/Landing";
-import LayoutSelection from "./pages/LayoutSelection";
-import Camera from "./pages/Camera";
-import PhotoReview from "./pages/PhotoReview";
-import PhotoEdit from "./pages/PhotoEdit";
-import FinalStripPreview from "./pages/FinalStripPreview";
-import PrintDownload from "./pages/PrintDownload";
-import ThankYou from "./pages/ThankYou";
+const COUPLE = { names: 'Liza and Carmelo', date: '18th July 2026' }
 
 function App() {
+  const [page, setPage] = useState('home')
+
   return (
-    <PhotoBoothProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/layouts" element={<LayoutSelection />} />
-          <Route path="/camera" element={<Camera />} />
-          <Route path="/review" element={<PhotoReview />} />
-          <Route path="/edit" element={<PhotoEdit />} />
-          <Route path="/final" element={<FinalStripPreview />} />
-          <Route path="/print" element={<PrintDownload />} />
-          <Route path="/thank-you" element={<ThankYou />} />
-        </Routes>
-      </BrowserRouter>
-    </PhotoBoothProvider>
-  );
+    <div className="app-frame">
+      <img className="floral-corner tr" src={topRightFlower} alt="" />
+      <img className="floral-corner bl" src={bottomLeftFlower} alt="" />
+
+      <header className="app-header">
+        <span>LIZA AND CARMELO</span>
+        <span className="monogram">L · C</span>
+        <span>{COUPLE.date.toUpperCase()}</span>
+      </header>
+
+      <nav className="app-nav">
+        <button className={page === 'home' ? 'active' : ''} onClick={() => setPage('home')}>Home</button>
+        <button className={page === 'booth' ? 'active' : ''} onClick={() => setPage('booth')}>Booth</button>
+        <button className={page === 'gallery' ? 'active' : ''} onClick={() => setPage('gallery')}>Gallery</button>
+        <button className={page === 'about' ? 'active' : ''} onClick={() => setPage('about')}>About</button>
+      </nav>
+
+      <main className="app-body">
+        {page === 'home' && <Hero couple={COUPLE} onStart={() => setPage('booth')} />}
+        {page === 'booth' && <Booth couple={COUPLE} onDone={() => setPage('gallery')} />}
+        {page === 'gallery' && <Gallery couple={COUPLE} />}
+        {page === 'about' && <About couple={COUPLE} />}
+      </main>
+    </div>
+  )
 }
 
-export default App;
+export default App

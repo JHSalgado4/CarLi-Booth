@@ -1,0 +1,42 @@
+.about {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  padding: 20px 20px 30px;
+}
+
+.about-title {
+  font-size: 40px;
+}
+
+.about-copy {
+  max-width: 380px;
+  color: var(--navy-soft);
+  line-height: 1.7;
+}
+
+.about-copy.small {
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+.about-grid {
+  display: flex;
+  gap: 40px;
+  margin: 10px 0;
+}
+
+.about-grid p {
+  margin-top: 4px;
+  font-size: 15px;
+}
+
+.rule {
+  width: 120px;
+  height: 1px;
+  background: var(--line);
+  margin: 6px 0;
+}

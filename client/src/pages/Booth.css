@@ -1,0 +1,41 @@
+.booth {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+
+.booth-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  width: 100%;
+}
+
+.composing-text {
+  font-size: 34px;
+}
+
+.strip-preview {
+  max-width: 260px;
+  width: 100%;
+  border: 1px solid var(--line-faint);
+  box-shadow: var(--shadow);
+}
+
+.booth-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.booth-actions .btn-plain {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
