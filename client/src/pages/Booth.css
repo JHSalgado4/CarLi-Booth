@@ -178,7 +178,12 @@
   position: relative;
   border: 1px solid var(--line-faint);
   background: rgba(255, 255, 255, 0.45);
+
+  /* Fixed thumbnail size */
+  width: 96px;
+  height: 128px;
   aspect-ratio: 3 / 4;
+
   overflow: hidden;
   padding: 0;
   cursor: pointer;
@@ -321,6 +326,25 @@
 .editor-preview-card.final {
   min-height: 100%;
 }
+
+/* width/height overrides by template */
+.booth.stage-edit[data-template='1'] .editor-preview-card img,
+.booth.stage-edit[data-template='2'] .editor-preview-card img {
+  height: 890px;
+  width: 300px;
+}
+
+.booth.stage-edit[data-template='3'] .editor-preview-card img,
+.booth.stage-edit[data-template='4'] .editor-preview-card img {
+  height: 890px;
+  width: 600px;
+}
+
+.booth.stage-edit[data-template='6'] .editor-preview-card img {
+  height: 450px;
+  width: 600px;
+}
+
 
 .strip-preview {
   max-width: 100%;
