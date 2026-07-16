@@ -29,7 +29,18 @@ const TONE_OPTIONS = [
   { id: 'blush', label: 'Blush', color: '#f4ede9' },
   { id: 'sage', label: 'Sage', color: '#eef1ea' },
   { id: 'ink', label: 'Ink wash', color: '#eef2f8' },
+
+  // Reduced set for a cleaner UI
+  { id: 'champagne', label: 'Champagne', color: '#f6efe4' },
+  { id: 'mocha', label: 'Mocha', color: '#efe8df' },
+  { id: 'dustyRose', label: 'Dusty rose', color: '#f5e9eb' },
+  { id: 'eucalyptus', label: 'Eucalyptus', color: '#edf3ef' },
+
+  // “Gold” option implemented as a champagne tone
+  { id: 'champagne', label: 'Gold', color: '#caa46a' },
 ]
+
+
 
 const STICKER_OPTIONS = [
   { id: 'none', label: 'None' },
@@ -261,25 +272,18 @@ function Booth({ couple, onDone }) {
                 <div className="editor-group">
                   <p className="label">Strip color</p>
                   <div className="tone-row">
-  {TONE_OPTIONS.map((option) => (
-    <button
-      key={option.id}
-      type="button"
-      className={`tone-swatch ${
-        editorConfig.frameTone === option.id ? "active" : ""
-      }`}
-      onClick={() =>
-        setEditorConfig((current) => ({
-          ...current,
-          frameTone: option.id,
-        }))
-      }
-      style={{ "--tone-color": option.color }}
-    >
-      <span>{option.label}</span>
-    </button>
-  ))}
-</div>
+                    {TONE_OPTIONS.map((option) => (
+                      <button
+                        key={option.id}
+                        type="button"
+                        className={`tone-swatch ${editorConfig.frameTone === option.id ? 'active' : ''}`}
+                        onClick={() => setEditorConfig((current) => ({ ...current, frameTone: option.id }))}
+                        style={{ '--tone-color': option.color }}
+                      >
+                        <span>{option.label}</span>
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
                 <div className="editor-group future-group">

@@ -31,14 +31,26 @@
 .gallery-card-actions a,
 .gallery-card-actions button {
   background: none;
-  border: none;
+  border: 1px solid var(--line-faint);
   cursor: pointer;
   color: var(--navy-soft);
   text-decoration: none;
   padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  font-family: var(--label);
+  font-size: 14px;
+  line-height: 1;
+  transition: color 0.15s, border-color 0.15s;
 }
 
 .gallery-card-actions a:hover,
 .gallery-card-actions button:hover {
   color: var(--gold);
+  border-color: var(--gold);
 }
+
+
