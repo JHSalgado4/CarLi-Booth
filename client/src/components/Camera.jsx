@@ -16,9 +16,11 @@ function Camera({ shots, onFinish }) {
 
   useEffect(() => {
     if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-      setError('Your browser does not support camera access.')
-      setIsLoading(false)
-      return undefined
+      const unavailableTimer = window.setTimeout(() => {
+        setError('Your browser does not support camera access.')
+        setIsLoading(false)
+      }, 0)
+      return () => window.clearTimeout(unavailableTimer)
     }
 
     let active = true

@@ -1,8 +1,11 @@
 import './FrameSelector.css'
 
 const LAYOUTS = [
-  { id: 3, label: '3 Shots', desc: 'Classic strip' },
-  { id: 4, label: '4 Shots', desc: 'Extra keepsake' },
+  { id: 1, shots: 3, label: 'Template 1', desc: '2 x 6 / 3 photo', kind: 'vertical' },
+  { id: 2, shots: 4, label: 'Template 2', desc: '2 x 6 / 4 photo', kind: 'vertical' },
+  { id: 3, shots: 6, label: 'Template 3', desc: '4 x 6 / 6 photo', kind: 'grid' },
+  { id: 4, shots: 1, label: 'Template 4', desc: '4 x 6 / portrait', kind: 'portrait' },
+  { id: 6, shots: 3, label: 'Template 6', desc: '4 x 6 / triple', kind: 'landscape' },
 ]
 
 function FrameSelector({ value, onChange }) {
@@ -18,7 +21,7 @@ function FrameSelector({ value, onChange }) {
             type="button"
           >
             <span className="frame-preview">
-              {Array.from({ length: layout.id }).map((_, i) => (
+              {Array.from({ length: layout.shots }).map((_, i) => (
                 <span key={i} className="frame-slot" />
               ))}
             </span>

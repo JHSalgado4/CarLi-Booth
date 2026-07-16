@@ -17,12 +17,13 @@ export function getStrips() {
   return read().sort((a, b) => b.createdAt - a.createdAt)
 }
 
-export function saveStrip({ image, shots }) {
+export function saveStrip({ image, shots, meta = {} }) {
   const strips = read()
   const entry = {
     id: `strip_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
     image,
     shots,
+    meta,
     createdAt: Date.now(),
   }
   strips.push(entry)

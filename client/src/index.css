@@ -1,13 +1,14 @@
 :root {
-  --ivory: #f5f3ec;
-  --ivory-deep: #efece2;
-  --navy: #2f3b52;
-  --navy-soft: #5a6478;
-  --navy-faint: rgba(47, 59, 82, 0.35);
-  --line: rgba(47, 59, 82, 0.55);
-  --line-faint: rgba(47, 59, 82, 0.22);
-  --gold: #b79b5b;
-  --shadow: 0 18px 40px -18px rgba(47, 59, 82, 0.35);
+  --ivory: #f7f7f1;
+  --ivory-deep: #eceee8;
+  --navy: #535f73;
+  --navy-soft: #70798a;
+  --navy-faint: rgba(83, 95, 115, 0.35);
+  --line: rgba(83, 95, 115, 0.68);
+  --line-faint: rgba(83, 95, 115, 0.24);
+  --ink: #535f73;
+  --gold: #a98e72;
+  --shadow: 0 18px 40px -22px rgba(63, 71, 81, 0.26);
 
   --script: 'Mrs Saint Delafield', cursive;
   --serif: 'Cormorant Garamond', serif;
@@ -30,19 +31,21 @@
 body {
   margin: 0;
   background:
-    radial-gradient(ellipse at top left, rgba(47, 59, 82, 0.05), transparent 55%),
-    radial-gradient(ellipse at bottom right, rgba(47, 59, 82, 0.05), transparent 55%),
+    radial-gradient(ellipse at 11% 12%, rgba(134, 151, 143, 0.12), transparent 26%),
+    radial-gradient(ellipse at 86% 79%, rgba(169, 146, 123, 0.08), transparent 31%),
+    radial-gradient(ellipse at 32% 72%, rgba(163, 174, 162, 0.08), transparent 22%),
     var(--ivory);
   min-height: 100svh;
 }
 
 #root {
-  max-width: 640px;
+  max-width: 1200px;
   margin: 0 auto;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
   position: relative;
+  width: 100%;
 }
 
 h1, h2, h3 {

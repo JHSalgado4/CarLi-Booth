@@ -15,11 +15,7 @@
   border: 1px solid rgba(47, 59, 82, 0.8);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(239, 236, 226, 0.95));
   box-shadow: 0 10px 24px -16px rgba(47, 59, 82, 0.65), inset 0 0 0 1px rgba(255, 255, 255, 0.55);
-  clip-path: polygon(
-    0 0, 8% 0, 8% 30%, 12% 50%, 8% 70%, 8% 100%,
-    92% 100%, 92% 70%, 96% 50%, 92% 30%, 92% 0, 100% 0,
-    100% 100%, 0 100%
-  );
+  overflow: hidden;
 }
 
 .btn-ticket:hover:not(:disabled) {
@@ -45,5 +41,25 @@
 }
 
 .btn-notch {
-  display: none;
+  display: block;
+  position: absolute;
+  top: 50%;
+  width: 12px;
+  height: 24px;
+  background: var(--ivory);
+  border: 1px solid rgba(47, 59, 82, 0.48);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.btn-notch.left {
+  left: -7px;
+  border-left: 0;
+  border-radius: 0 14px 14px 0;
+}
+
+.btn-notch.right {
+  right: -7px;
+  border-right: 0;
+  border-radius: 14px 0 0 14px;
 }
